@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.test;
+package com.test.event;
 
 import java.awt.Container;
 import java.awt.Point;
@@ -13,12 +13,12 @@ import javax.swing.JFrame;
 
 /**
  * @Copyright © 2017 sanbo Inc. All rights reserved.
- * @Description: TODO
+ * @Description: 自身类实现ActionListener接口,作为事件监听器
  * @Version: 1.0
  * @Create: 2017年1月2日 下午8:49:14
  * @Author: sanbo
  */
-public class E {
+public class Event {
     public static void main(String[] args) {
         JFrame f = new JFrame("这是一个按钮");
         Container contentPane = f.getContentPane();
@@ -31,7 +31,8 @@ public class E {
         contentPane.add(b);
         f.pack();
         f.setLocation(new Point(700, 300));
-        f.show();
+        // f.show();
+        f.setVisible(true);
         f.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
