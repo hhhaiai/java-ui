@@ -23,7 +23,9 @@
 + **2013**年1月自杀身亡。    
 
 ![Aaron Swartz](https://github.com/younghz/Markdown/raw/master/resource/Aaron_Swartz.jpg) 
+
 + 可以使用**本地**图片
+
 ![Aaron Swartz](../src/res/Aaron_Swartz.jpg) 
 
 天才都有早逝的归途（又是一位**犹太人**）。
