@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.temp;
+package com.test.thread;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
