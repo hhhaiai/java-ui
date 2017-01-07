@@ -123,7 +123,9 @@ public class TestSwingWorker extends SwingWorker<List<Image>, String> {
 
 }
 
- class TestFrame extends JFrame {
+class TestFrame extends JFrame {
+    private static final long serialVersionUID = -2772242797579838367L;
+
     public TestFrame() {
         setTitle("Test Frame");
         setSize(800, 600);

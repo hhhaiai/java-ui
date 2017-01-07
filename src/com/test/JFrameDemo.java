@@ -27,7 +27,7 @@ public class JFrameDemo {
          * MAXIMIZED_BOTH //最大化
          * </pre>
          */
-        f.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        f.setExtendedState(JFrame.MAXIMIZED_HORIZ);
         f.setSize(200, 200);
         f.setVisible(true);
         System.out.println(f.getSize().toString());
