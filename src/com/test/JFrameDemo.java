@@ -1,6 +1,11 @@
 package com.test;
 
+import java.awt.Container;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class JFrameDemo {
     public static void main(String[] args) {
@@ -28,7 +33,16 @@ public class JFrameDemo {
          * </pre>
          */
         f.setExtendedState(JFrame.MAXIMIZED_HORIZ);
+        f.setIconImage(new ImageIcon("src/res/icon.jpg").getImage());
+        // 向JFrame容器增加组建
+        Container con = f.getContentPane();
+        JPanel pa = new JPanel();
+        JButton btn = new JButton("我类个去");
+        pa.add(btn);
+        con.add(pa);
+
         f.setSize(200, 200);
+        f.setLocation(200, 200);
         f.setVisible(true);
         System.out.println(f.getSize().toString());
     }
