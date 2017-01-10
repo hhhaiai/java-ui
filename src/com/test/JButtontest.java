@@ -8,9 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.InputStream;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  * @Copyright © 2017 sanbo Inc. All rights reserved.
@@ -38,33 +40,54 @@ import javax.swing.JFrame;
  */
 public class JButtontest {
     public static void main(String[] args) {
-        JFrame f = new JFrame("这是一个按钮");
-        Container contentPane = f.getContentPane();
-        // 创建一个带初始文本的按钮
-        JButton b = new JButton("按钮");
-        // 如果没有设置文字的位置，系统默认值会将文字置于图形的右边中间位置
-        // 设置文本相对于图标的水平方向的位置
-        b.setHorizontalTextPosition(JButton.CENTER);
-        // 设置文本相对于图标的垂直方向的位置
-        b.setVerticalTextPosition(JButton.BOTTOM);
-        contentPane.add(b);
-        f.pack();
-        f.setSize(200, 120);
-        f.setLocation(300, 200);
-        // f.show();//不推荐方法
-        f.setVisible(true);
-        b.addActionListener(new ActionListener() {
+        SwingUtilities.invokeLater(new Runnable() {
 
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("你点击了新的窗口");
+            public void run() {
+                JFrame f = new JFrame("这是一个按钮");
+                Container contentPane = f.getContentPane();
+                // 创建一个带初始文本的按钮
+                JButton b = new JButton("按钮");
+                // 如果没有设置文字的位置，系统默认值会将文字置于图形的右边中间位置
+                // 设置文本相对于图标的水平方向的位置
+                b.setHorizontalTextPosition(JButton.CENTER);
+                // 设置文本相对于图标的垂直方向的位置
+                b.setVerticalTextPosition(JButton.BOTTOM);
+                contentPane.add(b);
+                f.pack();
+                f.setSize(200, 120);
+                f.setLocation(300, 200);
+                f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                // f.show();//不推荐方法
+                f.setVisible(true);
+                b.addActionListener(new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("你点击了新的窗口");
+                        try {
+                            Runtime rt = Runtime.getRuntime();
+                            Process p = rt.exec("MEmuManage.exe list vms");
+                            InputStream input = p.getInputStream();
+                            StringBuffer out = new StringBuffer();
+                            byte[] b = new byte[4096];
+                            for (int n; (n = input.read(b)) != -1;) {
+                                out.append(new String(b, 0, n));
+                            }
+                            System.out.println(out.toString());
+                        } catch (Throwable e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                });
+                f.addWindowListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
             }
         });
-        f.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
+
     }
 
 }
