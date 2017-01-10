@@ -1,4 +1,4 @@
-package com.test.book;
+package com.test;
 
 import java.awt.Container;
 import java.awt.Dimension;

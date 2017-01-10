@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.test.book;
+package com.test;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;

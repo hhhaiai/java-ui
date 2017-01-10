@@ -1,4 +1,4 @@
-package com.test.key.globlehotkey;
+package com.test.key;
 
 import java.awt.Insets;
 import java.awt.event.ActionEvent;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.test.event;
+package com.test;
 
 import java.awt.Color;
 import java.awt.Container;
